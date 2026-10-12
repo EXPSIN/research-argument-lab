@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN" data-static="true">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><title>科研困难与贡献分析</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap bar-inner"><h1>科研困难与贡献分析</h1><span id="statusBadge" class="status">本地练习</span></div></header>
+<main class="wrap">
+<section class="panel topic-panel">
+  <div class="panel-title"><h2>研究题目</h2><span id="promptSource" class="minor">题库</span></div>
+  <div class="topic-tools">
+    <label>领域<select id="domainSelect"><option value="control">控制理论与机器人</option><option value="optimization">优化理论与算法</option><option value="learning">机器学习与人工智能</option><option value="signal">信号处理与估计</option><option value="networks">网络与分布式系统</option><option value="math">应用数学与科学计算</option></select></label>
+    <label>难度<select id="levelSelect"><option value="all">全部</option><option value="basic">基础</option><option value="intermediate">进阶</option><option value="advanced">研究型</option></select></label>
+    <button id="rollBtn" type="button" class="btn primary">随机出题</button><button id="manualBtn" type="button" class="btn">自定义题目</button>
+  </div>
+  <label class="field" for="topicTitle"><span>题目 <i>*</i></span><input id="topicTitle" maxlength="300" placeholder="输入研究题目"></label>
+  <label class="field" for="topicBackground"><span>研究背景与假设</span><textarea id="topicBackground" rows="3" maxlength="4000" placeholder="简述系统、可用信息、研究目标及关键假设"></textarea></label>
+</section>
+<div class="columns">
+<section class="panel"><div class="panel-title"><h2>困难分析</h2><small>目标 → 限制 → 机制 → 影响</small></div>
+  <label class="field" for="difficulty_goal"><span>D1 · 研究目标 <i>*</i></span><small>希望实现或证明什么？</small><textarea id="difficulty_goal" rows="3"></textarea></label>
+  <label class="field" for="difficulty_constraints"><span>D2 · 客观限制 <i>*</i></span><small>模型、信息或约束有哪些限制？</small><textarea id="difficulty_constraints" rows="3"></textarea></label>
+  <label class="field" for="difficulty_mechanism"><span>D3 · 困难机制 <i>*</i></span><small>限制为什么妨碍目标？说明因果关系。</small><textarea id="difficulty_mechanism" rows="4"></textarea></label>
+  <label class="field" for="difficulty_impact"><span>D4 · 具体影响 <i>*</i></span><small>不处理障碍，无法保证什么性质？</small><textarea id="difficulty_impact" rows="3"></textarea></label>
+  <label class="field" for="difficulty_evidence"><span>D5 · 支持论据</span><small>反例、公式、定理或证据（选填）</small><textarea id="difficulty_evidence" rows="3"></textarea></label>
+</section>
+<section class="panel"><div class="panel-title"><h2>贡献分析</h2><small>问题 → 创新 → 克服 → 效果</small></div>
+  <label class="field" for="contribution_problem"><span>C1 · 具体问题 <i>*</i></span><small>技术、理论或科学问题，而非论文题目。</small><textarea id="contribution_problem" rows="3"></textarea></label>
+  <label class="field" for="contribution_innovation"><span>C2 · 核心创新 <i>*</i></span><small>新机制、新方法或新理论体现在哪里？</small><textarea id="contribution_innovation" rows="4"></textarea></label>
+  <label class="field" for="contribution_overcome"><span>C3 · 克服困难 <i>*</i></span><small>创新如何克服该问题的技术障碍？（可独立填写）</small><textarea id="contribution_overcome" rows="3"></textarea></label>
+  <label class="field" for="contribution_result"><span>C4 · 实现效果 <i>*</i></span><small>最终严格证明或验证了什么？</small><textarea id="contribution_result" rows="3"></textarea></label>
+  <label class="field" for="contribution_evidence"><span>C5 · 结果依据</span><small>定理、证明或实验依据（选填）</small><textarea id="contribution_evidence" rows="3"></textarea></label>
+</section>
+</div>
+<section class="panel settings-panel"><div class="panel-title"><h2>模型设置</h2><span class="minor">自动保存</span></div>
+  <div class="settings-grid">
+    <label class="field" for="providerSelect"><span>API 供应商</span><select id="providerSelect"><option value="openai">OpenAI</option><option value="anthropic">Anthropic (Claude)</option><option value="google">Google Gemini</option><option value="deepseek">DeepSeek</option><option value="aliyun">阿里云百炼</option><option value="volcengine">火山引擎方舟</option><option value="zhipu">智谱 AI</option><option value="moonshot">月之暗面 Kimi</option><option value="tencent">腾讯混元</option><option value="siliconflow">硅基流动</option><option value="custom">自定义供应商</option></select></label>
+    <label class="field" for="providerCustom" id="providerCustomWrap" hidden><span>自定义供应商名称</span><input id="providerCustom" placeholder="输入供应商名称"></label>
+    <label class="field" for="apiProtocol" id="apiProtocolWrap" hidden><span>接口格式</span><select id="apiProtocol"><option value="openai">OpenAI 兼容</option><option value="anthropic">Anthropic Messages</option></select></label>
+    <label class="field" for="apiBaseUrl"><span>API Base URL</span><input id="apiBaseUrl" type="url" spellcheck="false" placeholder="https://…/v1"></label>
+    <label class="field" for="apiModel"><span>模型名称</span><input id="apiModel" spellcheck="false" placeholder="填写模型 ID"></label>
+    <label class="field" for="apiKey"><span>API Key</span><span class="secret-wrap"><input id="apiKey" type="password" autocomplete="off" spellcheck="false" placeholder="粘贴 API Key"><button id="toggleKeyBtn" type="button" class="small-btn" aria-label="显示或隐藏 API Key">显示</button></span></label>
+  </div>
+  <div class="setting-foot"><label class="minor key-choice"><input type="checkbox" id="rememberKey">在此浏览器记住 API Key（明文存储，公开部署慎用）</label><button id="forgetKeyBtn" class="link-btn" type="button">清除密钥</button></div>
+</section>
+<section class="panel review-panel" id="review"><div class="panel-title"><h2>检查与评审</h2><span id="completionLabel" class="minor">选择评审范围</span></div>
+  <div class="review-scope"><label for="reviewScope">评审范围</label><select id="reviewScope"><option value="auto">自动识别已填写部分</option><option value="difficulty">只评困难</option><option value="contribution">只评贡献</option><option value="both">困难与贡献一起评</option></select><span class="minor">两部分可以单独填写、单独评审。</span></div>
+  <div class="actions"><button id="evaluateBtn" class="btn primary" type="button">AI 评审</button><button id="localCheckBtn" class="btn" type="button">结构自检</button><button id="copyPromptBtn" class="btn" type="button">复制评审提问</button><button id="exampleBtn" class="btn" type="button">示例</button><button id="exportBtn" class="btn" type="button">导出 Markdown</button><button id="clearBtn" class="btn quiet" type="button">清空</button></div>
+  <p class="minor note" id="reviewNote">AI 评审检查论证逻辑，不替代数学证明和文献创新性核查。</p>
+  <div id="emptyResult" class="empty">暂无评审结果</div><div id="resultPanel" class="result-panel" hidden></div>
+</section>
+</main>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="app.js" defer></script>
+</body>
+</html>
