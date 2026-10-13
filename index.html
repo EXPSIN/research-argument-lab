@@ -26,11 +26,11 @@
   <label class="field" for="difficulty_impact"><span>D4 · 具体影响 <i>*</i></span><small>不处理障碍，无法保证什么性质？</small><textarea id="difficulty_impact" rows="3"></textarea></label>
   <label class="field" for="difficulty_evidence"><span>D5 · 支持论据</span><small>反例、公式、定理或证据（选填）</small><textarea id="difficulty_evidence" rows="3"></textarea></label>
 </section>
-<section class="panel"><div class="panel-title"><h2>贡献分析</h2><small>问题 → 创新 → 克服 → 效果</small></div>
-  <label class="field" for="contribution_problem"><span>C1 · 具体问题 <i>*</i></span><small>技术、理论或科学问题，而非论文题目。</small><textarea id="contribution_problem" rows="3"></textarea></label>
-  <label class="field" for="contribution_innovation"><span>C2 · 核心创新 <i>*</i></span><small>新机制、新方法或新理论体现在哪里？</small><textarea id="contribution_innovation" rows="4"></textarea></label>
-  <label class="field" for="contribution_overcome"><span>C3 · 克服困难 <i>*</i></span><small>创新如何克服该问题的技术障碍？（可独立填写）</small><textarea id="contribution_overcome" rows="3"></textarea></label>
-  <label class="field" for="contribution_result"><span>C4 · 实现效果 <i>*</i></span><small>最终严格证明或验证了什么？</small><textarea id="contribution_result" rows="3"></textarea></label>
+<section class="panel"><div class="panel-title"><h2>贡献分析</h2><small>问题 → 方法 → 困难 → 效果</small></div>
+  <label class="field" for="contribution_problem"><span>C1 · 具体问题 <i>*</i></span><small>要解决的技术、理论或科学问题，不是研究主题。</small><textarea id="contribution_problem" rows="3"></textarea></label>
+  <label class="field" for="contribution_innovation"><span>C2 · 方法与创新 <i>*</i></span><small>提出什么方法？关键的新构造或新机制是什么？</small><textarea id="contribution_innovation" rows="4"></textarea></label>
+  <label class="field" for="contribution_overcome"><span>C3 · 克服困难 <i>*</i></span><small>哪种障碍妨碍目标？方法的哪个环节如何化解？</small><textarea id="contribution_overcome" rows="3"></textarea></label>
+  <label class="field" for="contribution_result"><span>C4 · 实现效果 <i>*</i></span><small>在什么条件下证明/验证了什么？是否回应C1？</small><textarea id="contribution_result" rows="3"></textarea></label>
   <label class="field" for="contribution_evidence"><span>C5 · 结果依据</span><small>定理、证明或实验依据（选填）</small><textarea id="contribution_evidence" rows="3"></textarea></label>
 </section>
 </div>
@@ -48,7 +48,7 @@
 <section class="panel review-panel" id="review"><div class="panel-title"><h2>检查与评审</h2><span id="completionLabel" class="minor">选择评审范围</span></div>
   <div class="review-scope"><label for="reviewScope">评审范围</label><select id="reviewScope"><option value="auto">自动识别已填写部分</option><option value="difficulty">只评困难</option><option value="contribution">只评贡献</option><option value="both">困难与贡献一起评</option></select><span class="minor">两部分可以单独填写、单独评审。</span></div>
   <div class="actions"><button id="evaluateBtn" class="btn primary" type="button">AI 评审</button><button id="localCheckBtn" class="btn" type="button">结构自检</button><button id="copyPromptBtn" class="btn" type="button">复制评审提问</button><button id="exampleBtn" class="btn" type="button">示例</button><button id="exportBtn" class="btn" type="button">导出 Markdown</button><button id="clearBtn" class="btn quiet" type="button">清空</button></div>
-  <p class="minor note" id="reviewNote">AI 评审检查论证逻辑，不替代数学证明和文献创新性核查。</p>
+  <p class="minor note" id="reviewNote">贡献评审检查四项定位、三组区别和六条逻辑关系；不替代数学证明或文献核查。</p>
   <div id="emptyResult" class="empty">暂无评审结果</div><div id="resultPanel" class="result-panel" hidden></div>
 </section>
 </main>
